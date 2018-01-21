@@ -22,7 +22,7 @@
 
     <main>
         <div class="headings-container">
-            <h1>Online book store</h1>
+            <h1>Online bookstore</h1>
             <h3>Reading is for everyone</h3>
         </div>
 
