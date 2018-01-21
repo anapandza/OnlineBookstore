@@ -1,4 +1,4 @@
-# OnlineBookstore
+# Online Bookstore
 Simple website that implements basics of HTML, CSS, Javascript and PHP
 
 ## Demo
