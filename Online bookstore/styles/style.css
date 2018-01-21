@@ -55,7 +55,7 @@ main {
 }
 
 .headings-container h3 {
-  padding: 15px 0 0 0; 
+  padding: 12px 0 0 0; 
 }
 
 #registration-container {
@@ -80,10 +80,13 @@ main {
 }
 
 #caption {
-  border: 10px solid #004d80;
+  border-bottom: 7px solid #004d80;
   padding: 0 0 0 10px;
-  border-radius: 7px;
   margin-bottom: 40px;
+}
+
+#caption h5{
+    margin-bottom: 3px;
 }
 
 #slider-container {
