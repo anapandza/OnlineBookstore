@@ -34,10 +34,10 @@ class Slider {
 	
 	private static function getDbAccess(){
 		return new DatabaseAccess(
-			"localhost",  //lokacija do DB servera
-			"PandzaAna", //Ime baze PrezimeIme
-			"PandzaAna", //username PrezimeIme
-			"PandzaAna1" //password PrezimeIme1
+			"localhost",  //location to DB server
+			"PandzaAna", //name of the base
+			"PandzaAna", //username
+			"PandzaAna1" //password
 		);
 	}
 }
