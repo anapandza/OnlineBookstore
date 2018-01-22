@@ -1,7 +1,7 @@
 $(document).ready(function(){
     let thumbnails = []; 
     
-    //dohvacanje thumbnaila sa servera
+    //fetching thumbnails from server
     $.ajax({
         url: "API.php?action=getThumbnails",
         dataType: "json"
@@ -17,7 +17,7 @@ $(document).ready(function(){
         $("#thumbnails-container").append(thumbnailHtml);
     };
 
-    //dodavanje thumbnaila 
+    //adding thumbnails
     $("#add-button").on("click", e => {
         const imageUrl = prompt("Enter image URL", "images/the-whistler.jpg");
         if(!imageUrl) {return; }
@@ -38,14 +38,14 @@ $(document).ready(function(){
             url:"API.php?action=addThumbnail",
             data: thumbnail,
             dataType: "json"
-        }).done(response => {   // response je ID
+        }).done(response => {   // response is ID
             thumbnail.id=response.id;
             thumbnails.push(thumbnail);
             createThumbnail(thumbnail);
         }).fail(error => console.log("Error when adding card", error));
     });
 
-    // brisanje thumbnaila
+    // deleting thumbnails
     $("#thumbnails-container").on("click", ".thumbnail .delete-button", (e) => {
         const deleteButton = e.currentTarget;
         const $card = $(deleteButton).parent(".thumbnail");
