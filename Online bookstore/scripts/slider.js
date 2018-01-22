@@ -1,8 +1,8 @@
 $(document).ready(function(){
-    let index = 0; // zapocinjemo s 1 slajdom
+    let index = 0; // starting with first slider
     let sliders = [];
     
-    //dohvacamo slidere sa servera
+    //fetching sliders from server
     $.ajax({
         url: "API.php?action=getSliders",
         dataType: "json"
@@ -19,7 +19,7 @@ $(document).ready(function(){
         colorStars();
     };
 
-    // oznacavanje stars na temelju vec dodijeljene ocjene
+    // marking stars based on saved grade
     function colorStars(){
         const $stars = $("#slider-container > #slider-image").find("#stars .fa");
         let grade = sliders[index].grade;
@@ -28,7 +28,7 @@ $(document).ready(function(){
         }
     };
 
-    //oznacavanje praznih stars u pune
+    //changing empty stars into full ones
     $("#slider-container").on("click", "#stars .fa-star-o",(e) => {
         const clickedStar = e.currentTarget;
         const $stars = $("#slider-container > #slider-image").find("#stars .fa");
@@ -50,7 +50,7 @@ $(document).ready(function(){
         sliders[index].grade = counter+1;
     }); 
 
-    //oznacavanje punih stars u prazne(ako odlucimo npr smanjit ocjenu)
+    //changing full stars into empty ones
     $("#slider-container").on("click", "#stars .fa-star",(e) => {
         const clickedStar = e.currentTarget;
         const $stars = $("#slider-container > #slider-image").find("#stars .fa");
@@ -72,21 +72,21 @@ $(document).ready(function(){
         sliders[index].grade = counter+1;
     }); 
 
-    // klik na desnu strelicu
+    // click on right arrow
     $("#slider-container").on("click", ".arrow-icon-right",() => {
         index++;
         if(index > 2) index=0;
         makeNewSlide();
     });
 
-    // klik na lijevu strelicu
+    // click on left arrow
     $("#slider-container").on("click", ".arrow-icon-left",() => {
         index--;
         if(index < 0) index=2;
         makeNewSlide();
     });
 
-    //klik na uredi botun 
+    //click on "edit button" 
     $("#slider-container").on("click", "#edit", (e) => {
         const currentDesc = $("#slider-container > #slider-description > p").text();
         const description = prompt("New description text", currentDesc);
